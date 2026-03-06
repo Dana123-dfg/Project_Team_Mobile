@@ -10,6 +10,6 @@ class AppBinding extends Bindings {
     Get.put(CartController());
     Get.lazyPut(() => HomeController());
     Get.lazyPut(() => CategoryController());
-    Get.lazyPut(() => app.SearchController( ));
+    Get.lazyPut(() => app.FoodSearchController(), fenix: true);
   }
 }

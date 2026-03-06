@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_menu_app/models/cart_item.dart';
 
 import 'package:food_menu_app/controllers/cart_controller.dart';
 import 'package:food_menu_app/models/food_model.dart';
@@ -37,7 +36,7 @@ class DrinkDetailScreen extends GetView<CartController> {
                     onPressed: Get.back,
                   ),
                   GestureDetector(
-                    onTap: () => Get.to(() =>  CardScreen()),
+                    onTap: () => Get.to(() => CardScreen()),
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
@@ -51,10 +50,7 @@ class DrinkDetailScreen extends GetView<CartController> {
                         ],
                       ),
                       child: const CartBadge(
-                        child: Icon(
-                          Icons.shopping_bag_outlined,
-                          size: 20,
-                        ),
+                        child: Icon(Icons.shopping_bag_outlined, size: 20),
                       ),
                     ),
                   ),
@@ -109,7 +105,7 @@ class DrinkDetailScreen extends GetView<CartController> {
                                   ? drinkItem.image!
                                   : 'https://via.placeholder.com/300',
                               fit: BoxFit.fitHeight,
-                              errorBuilder: (_, __, ___) =>
+                              errorBuilder: (_, _, _) =>
                                   const Icon(Icons.image_not_supported),
                             ),
                           ),
@@ -124,17 +120,13 @@ class DrinkDetailScreen extends GetView<CartController> {
                       () => Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          _qtyButton(
-                            Icons.remove_outlined,
-                            () {
-                              if (quantity.value > 1) {
-                                quantity.value--;
-                              }
-                            },
-                          ),
+                          _qtyButton(Icons.remove_outlined, () {
+                            if (quantity.value > 1) {
+                              quantity.value--;
+                            }
+                          }),
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 24),
+                            padding: const EdgeInsets.symmetric(horizontal: 24),
                             child: Text(
                               quantity.value.toString(),
                               style: const TextStyle(
@@ -143,10 +135,7 @@ class DrinkDetailScreen extends GetView<CartController> {
                               ),
                             ),
                           ),
-                          _qtyButton(
-                            Icons.add,
-                            () => quantity.value++,
-                          ),
+                          _qtyButton(Icons.add, () => quantity.value++),
                         ],
                       ),
                     ),
@@ -221,7 +210,10 @@ class DrinkDetailScreen extends GetView<CartController> {
                                 drinkItem,
                                 quantity: quantity.value,
                               );
-                              Get.to(() => OrderDetailScreen(items: controller.items));
+                              Get.to(
+                                () =>
+                                    OrderDetailScreen(items: controller.items),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: primaryOrange,

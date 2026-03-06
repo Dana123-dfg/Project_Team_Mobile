@@ -14,11 +14,10 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Use a unique tag for each item to avoid reusing the same controller instance
     final controllerTag = item.id?.toString() ?? item.name ?? 'unknown';
     final controller = Get.put(DetailController(item), tag: controllerTag);
 
-      final Color primaryOrange = Color(0xFFFF6B00);
+    final Color primaryOrange = Color(0xFFFF6B00);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -35,7 +34,7 @@ class DetailScreen extends StatelessWidget {
                     ? item.image!
                     : 'https://via.placeholder.com/300',
                 fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) =>
+                errorBuilder: (_, _, _) =>
                     const Icon(Icons.image_not_supported),
               ),
             ),
@@ -47,7 +46,6 @@ class DetailScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Back Button (White Arrow)
                 GestureDetector(
                   onTap: () => Get.back(),
                   child: const Icon(
@@ -56,7 +54,6 @@ class DetailScreen extends StatelessWidget {
                     size: 28,
                   ),
                 ),
-                // Cart Button (White rounded bg, Black Icon)
                 GestureDetector(
                   onTap: () {
                     Get.to(() => CardScreen());
@@ -100,7 +97,6 @@ class DetailScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Title and Quantity Row
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,7 +116,6 @@ class DetailScreen extends StatelessWidget {
                               ),
                               const SizedBox(width: 10),
 
-                              // Quantity Controls
                               Obx(
                                 () => Flexible(
                                   flex: 2,
@@ -162,7 +157,6 @@ class DetailScreen extends StatelessWidget {
 
                           const SizedBox(height: 8),
 
-                          // Timer / Duration
                           Row(
                             children: [
                               const Icon(
@@ -182,7 +176,6 @@ class DetailScreen extends StatelessWidget {
 
                           const SizedBox(height: 25),
 
-                          // About Section
                           Text(
                             "About",
                             style: AppTextStyles.sectionTitle.copyWith(
@@ -196,12 +189,11 @@ class DetailScreen extends StatelessWidget {
                                 : "No Description",
                             style: AppTextStyles.foodDescription.copyWith(
                               fontSize: 13,
-                              height: 1.6, // Better readability
+                              height: 1.6,
                               color: Colors.grey[600],
                             ),
                           ),
 
-                          // Space for Bottom Bar
                           const SizedBox(height: 130),
                         ],
                       ),
@@ -212,7 +204,6 @@ class DetailScreen extends StatelessWidget {
             ),
           ),
 
-          // Bottom Bar (Fixed)
           Positioned(
             bottom: 0,
             left: 0,
@@ -230,7 +221,6 @@ class DetailScreen extends StatelessWidget {
                 ],
               ),
               child: Column(
-                // mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -238,13 +228,12 @@ class DetailScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF0F1E3D), // Dark blue/black shade
+                      color: Color(0xFF0F1E3D),
                     ),
                   ),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      // Add to Cart Button
                       Expanded(
                         child: SizedBox(
                           height: 50,
@@ -271,7 +260,6 @@ class DetailScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 16),
-                      // Order Now Button
                       Expanded(
                         child: SizedBox(
                           height: 50,
@@ -317,7 +305,7 @@ class DetailScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 24, // Fixed size for circles
+        width: 24,
         height: 24,
         decoration: BoxDecoration(color: color, shape: BoxShape.circle),
         child: Icon(icon, color: Colors.white, size: 18),

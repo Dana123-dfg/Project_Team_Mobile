@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_menu_app/constants.dart';
 import 'package:food_menu_app/controllers/category_controller.dart';
 import 'package:food_menu_app/widgets/product_card_widget.dart';
 import 'package:get/get.dart';

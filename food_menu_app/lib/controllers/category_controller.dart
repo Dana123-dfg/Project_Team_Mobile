@@ -13,13 +13,6 @@ class CategoryController extends GetxController {
   final isLoadingSnacks = false.obs;
   final isLoadingDesserts = false.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-    // Fetch only what's needed or fetch all?
-    // For now, let's fetch only when requested but initialize here if desired
-  }
-
   Future<void> fetchFoods() async {
     try {
       isLoadingFoods(true);

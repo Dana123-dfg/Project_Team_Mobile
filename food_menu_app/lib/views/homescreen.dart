@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:food_menu_app/constants.dart';
 import 'package:food_menu_app/controllers/home_controller.dart';
+import 'package:food_menu_app/controllers/auth_controller.dart';
 import 'package:food_menu_app/models/items_model.dart';
 import 'package:food_menu_app/views/card_screen.dart';
 import 'package:food_menu_app/views/search_screen.dart';
@@ -12,7 +12,6 @@ import 'package:food_menu_app/widgets/product_card_widget.dart';
 import 'package:food_menu_app/widgets/search_widget.dart';
 import 'package:get/get.dart';
 
-
 class Homescreen extends GetView<HomeController> {
   const Homescreen({super.key});
 
@@ -20,7 +19,6 @@ class Homescreen extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      // backgroundColor: const Color.fromARGB(255, 255, 251, 247),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -53,6 +51,22 @@ class Homescreen extends GetView<HomeController> {
                         icon: const CartBadge(
                           child: Icon(Icons.shopping_bag_outlined),
                         ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      height: 52,
+                      width: 52,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 253, 253),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: IconButton(
+                        tooltip: 'Logout',
+                        onPressed: () async {
+                          await Get.find<AuthController>().logout();
+                        },
+                        icon: const Icon(Icons.logout),
                       ),
                     ),
                   ],
@@ -94,8 +108,6 @@ class Homescreen extends GetView<HomeController> {
                             fit: StackFit.expand,
                             children: [
                               Image.network(path, fit: BoxFit.cover),
-
-                              // Gradient overlay
                               Container(
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
@@ -109,7 +121,6 @@ class Homescreen extends GetView<HomeController> {
                                 ),
                               ),
 
-                              // Optional text
                               const Positioned(
                                 left: 16,
                                 bottom: 16,
@@ -176,7 +187,6 @@ class Homescreen extends GetView<HomeController> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text('See all', style: AppTextStyles.seeAll),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -206,7 +216,6 @@ class Homescreen extends GetView<HomeController> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text('See all', style: AppTextStyles.seeAll),
                   ],
                 ),
                 SizedBox(height: 16),

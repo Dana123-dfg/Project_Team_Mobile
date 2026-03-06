@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu_app/controllers/cart_controller.dart';
 import 'package:food_menu_app/models/food_model.dart';
-import 'package:food_menu_app/models/items_model.dart';
-import 'package:food_menu_app/views/detail_screen.dart';
 import 'package:food_menu_app/views/drink_detail_screen.dart';
 
 class DrinkCardWidget extends StatelessWidget {
@@ -20,7 +18,9 @@ class DrinkCardWidget extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DrinkDetailScreen(  drinkItem: item,)),
+            MaterialPageRoute(
+              builder: (context) => DrinkDetailScreen(drinkItem: item),
+            ),
           );
         },
         child: Container(
@@ -53,20 +53,20 @@ class DrinkCardWidget extends StatelessWidget {
                 width: double.infinity,
 
                 child: Image.network(
-                    item.image != null && item.image!.isNotEmpty
-                        ? item.image!
-                        : 'https://via.placeholder.com/300',
-                    fit: BoxFit.fitHeight,
-                    errorBuilder: (_, __, ___) =>
-                        const Icon(Icons.image_not_supported),
-                  ),
+                  item.image != null && item.image!.isNotEmpty
+                      ? item.image!
+                      : 'https://via.placeholder.com/300',
+                  fit: BoxFit.fitHeight,
+                  errorBuilder: (_, _, _) =>
+                      const Icon(Icons.image_not_supported),
+                ),
               ),
 
               const SizedBox(height: 12),
 
               // 🔹 Product Title
               Text(
-              item.name?.isNotEmpty == true ? item.name! : "No Name",
+                item.name?.isNotEmpty == true ? item.name! : "No Name",
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
@@ -80,7 +80,9 @@ class DrinkCardWidget extends StatelessWidget {
 
               // 🔹 Product Description
               Text(
-                item.description?.isNotEmpty == true ? item.description! : "No description",
+                item.description?.isNotEmpty == true
+                    ? item.description!
+                    : "No description",
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 12, color: Colors.grey.shade600),

@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-import 'package:food_menu_app/models/cart_item.dart';
-
 import 'package:food_menu_app/models/food_model.dart';
 import 'package:food_menu_app/controllers/cart_controller.dart';
 import 'package:food_menu_app/views/order_detail_screen.dart';

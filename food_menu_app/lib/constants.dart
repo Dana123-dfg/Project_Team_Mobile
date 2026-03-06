@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 class AppColors {
   static const Color primaryOrange = Color(
     0xFFFFAB6D,
-  ); // Approximate from image
+  ); 
   static const Color lightOrange = Color(0xFFFFDAB9);
   static const Color background = Color(
     0xFFFFF5E1,
-  ); // Light peach/beige background
+  ); 
   static const Color cardWhite = Colors.white;
   static const Color textBlack = Color(0xFF333333);
   static const Color iconBg = Color(0xFFFFFFFF);

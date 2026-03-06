@@ -12,7 +12,6 @@ class HomeController extends GetxController {
 
   final currentIndex = 0.obs;
 
-  // Data
   final popularFoods = <Food>[].obs;
   final allFoods = <Food>[].obs;
 

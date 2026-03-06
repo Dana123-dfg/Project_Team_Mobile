@@ -8,8 +8,6 @@ class FoodsScreen extends GetView<CategoryController> {
 
   @override
   Widget build(BuildContext context) {
-    // Fetch foods if not already fetched or every time? 
-    // Usually onInit of controller or here
     controller.fetchFoods();
 
     return Scaffold(

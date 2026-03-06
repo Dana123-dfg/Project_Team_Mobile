@@ -5,7 +5,7 @@ import 'package:food_menu_app/controllers/search_controller.dart' as app;
 import 'package:food_menu_app/widgets/product_card_widget.dart';
 import 'package:get/get.dart';
 
-class SearchScreen extends GetView<app.SearchController> {
+class SearchScreen extends GetView<app.FoodSearchController> {
   const SearchScreen({super.key});
 
   @override

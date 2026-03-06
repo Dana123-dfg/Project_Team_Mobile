@@ -4,6 +4,8 @@ import 'package:food_menu_app/controllers/cart_controller.dart';
 import 'package:food_menu_app/models/food_model.dart';
 import 'package:food_menu_app/views/detail_screen.dart';
 
+import 'package:food_menu_app/views/drink_detail_screen.dart';
+
 class ProductCard extends StatelessWidget {
   final Food item;
 
@@ -16,7 +18,14 @@ class ProductCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          Get.to(() => DetailScreen(item: item), preventDuplicates: false);
+          if (item.category == 'drink') {
+            Get.to(
+              () => DrinkDetailScreen(drinkItem: item),
+              preventDuplicates: false,
+            );
+          } else {
+            Get.to(() => DetailScreen(item: item), preventDuplicates: false);
+          }
         },
         child: Container(
           decoration: BoxDecoration(
@@ -49,7 +58,7 @@ class ProductCard extends StatelessWidget {
                         ? item.image!
                         : 'https://via.placeholder.com/300',
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) =>
+                    errorBuilder: (_, _, _) =>
                         const Icon(Icons.image_not_supported),
                   ),
                 ),
@@ -111,7 +120,11 @@ class ProductCard extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: Color(0xFFFF6B00),
                       ),
-                      child: const Icon(Icons.add, color: Colors.white, size: 18),
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 18,
+                      ),
                     ),
                   ),
                 ],

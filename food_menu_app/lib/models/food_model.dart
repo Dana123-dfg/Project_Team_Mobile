@@ -8,15 +8,19 @@ class Food {
   String? createdAt;
   String? updatedAt;
 
-  Food(
-      {this.id,
-      this.name,
-      this.description,
-      this.image,
-      this.duration,
-      this.price,
-      this.createdAt,
-      this.updatedAt});
+  String? category;
+
+  Food({
+    this.id,
+    this.name,
+    this.description,
+    this.image,
+    this.duration,
+    this.price,
+    this.createdAt,
+    this.updatedAt,
+    this.category,
+  });
 
   Food.fromJson(Map<String, dynamic> json) {
     if (json['id'] is int) {
@@ -31,7 +35,8 @@ class Food {
     description = json['description'];
     image = json['image'];
     duration = json['duration'];
-    
+    category = json['category'];
+
     if (json['price'] is String) {
       price = json['price'];
     } else if (json['price'] is num) {
@@ -45,15 +50,16 @@ class Food {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['image'] = this.image;
-    data['duration'] = this.duration;
-    data['price'] = this.price;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    data['image'] = image;
+    data['duration'] = duration;
+    data['price'] = price;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['category'] = category;
     return data;
   }
 }
