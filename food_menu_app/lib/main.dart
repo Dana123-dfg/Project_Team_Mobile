@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final auth = Get.find<AuthController>();
     return GetMaterialApp(
+      navigatorKey: Get.key,
       title: 'M3 Restaurant',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

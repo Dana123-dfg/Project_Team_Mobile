@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:food_menu_app/controllers/home_controller.dart';
 import 'package:food_menu_app/controllers/auth_controller.dart';
 import 'package:food_menu_app/models/items_model.dart';
+import 'package:food_menu_app/main.dart';
 import 'package:food_menu_app/views/card_screen.dart';
+import 'package:food_menu_app/views/login_screen.dart';
 import 'package:food_menu_app/views/search_screen.dart';
 import 'package:food_menu_app/widgets/cart_badge.dart';
 import 'package:food_menu_app/widgets/categories_widget.dart';
@@ -65,6 +67,7 @@ class Homescreen extends GetView<HomeController> {
                         tooltip: 'Logout',
                         onPressed: () async {
                           await Get.find<AuthController>().logout();
+                          Get.offAll(() => const MainBackgroundWrapper(child: LoginScreen()));
                         },
                         icon: const Icon(Icons.logout),
                       ),
